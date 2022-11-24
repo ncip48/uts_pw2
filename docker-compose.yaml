@@ -1,0 +1,37 @@
+version: "3.8"
+services:
+  php-apache-environment:
+    container_name: php-apache
+    build:
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    volumes:
+      - .:/var/www/html/
+    ports:
+      - 8000:80
+    networks:
+      backend:
+        aliases:
+          - app
+  db:
+    container_name: db
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: "db_bljr"
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_ROOT_PASSWORD: ""
+    volumes:
+      - ./run/var:/var/lib/mysql
+      - ./pw2_uts.sql:/docker-entrypoint-initdb.d/pw2_uts.sql
+    ports:
+      - "9906:3306"
+    networks:
+      backend:
+        aliases:
+          - db
+
+networks:
+  backend:
+    name: backend-bljr

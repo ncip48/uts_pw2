@@ -1,9 +1,9 @@
 <?php
 
-$server = '103.121.122.247';
-$user = 'pw2_uts';
-$password = 'mbahcip123';
-$nama_database = 'pw2_uts';
+$server = 'db';
+$user = 'root';
+$password = '';
+$nama_database = 'db_bljr';
 
 const AUTHOR = 'HERLY CHAHYA PUTRA';
 
