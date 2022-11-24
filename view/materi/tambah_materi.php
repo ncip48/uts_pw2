@@ -52,7 +52,7 @@ session_start();
                                             <td class="d-flex align-items-center">: <input class="ms-2 form-control" type="number" name="pertemuan" placeholder="Pertemuan" />
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr hidden>
                                             <td><label for="tanggal_materi">Tanggal</label></td>
                                             <td class="d-flex align-items-center">: <input class="ms-2 form-control" type="datetime-local" name="tanggal_materi" placeholder="Tanggal" value="<?php echo date('Y-m-d\TH:i:s'); ?>" readonly />
                                             </td>

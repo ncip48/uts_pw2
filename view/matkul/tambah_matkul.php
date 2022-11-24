@@ -1,5 +1,6 @@
 <?php
 include('./view/template/navbar.php');
+include('./config/config.php');
 session_start();
 ?>
 <div class="container-fluid">

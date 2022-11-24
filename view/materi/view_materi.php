@@ -58,16 +58,16 @@ include('./config/config.php');
                                                     <th>Nama Matkul</th>
                                                     <th>Nama Materi</th>
                                                     <th>Pertemuan ke</th>
-                                                    <th>Tanggal</th>
+                                                    <!-- <th>Tanggal</th> -->
                                                     <th>Mau Diapain</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
                                                 if (isset($_GET['query'])) {
-                                                    $sql = "SELECT * FROM tb_materi WHERE nama_materi LIKE '%" . $_GET['query'] . "%'";
+                                                    $sql = "SELECT a.*, b.nama_matkul FROM tb_materi a LEFT JOIN tb_matkul b ON a.id_matkul = b.id WHERE a.nama_materi LIKE '%" . $_GET['query'] . "%'";
                                                 } else {
-                                                    $sql = "SELECT a.*, b.nama_matkul FROM tb_materi a JOIN tb_matkul b ON a.id_matkul = b.id";
+                                                    $sql = "SELECT a.*, b.nama_matkul FROM tb_materi a LEFT JOIN tb_matkul b ON a.id_matkul = b.id";
                                                 }
                                                 $query = mysqli_query($sambung, $sql);
                                                 $jumlah = mysqli_num_rows($query);
@@ -75,10 +75,10 @@ include('./config/config.php');
                                                 while ($mhs = mysqli_fetch_array($query)) {
                                                     echo "<tr>";
                                                     echo "<td>" . $nomor . "</td>";
-                                                    echo "<td>" . $mhs['nama_matkul'] . "</td>";
+                                                    echo ($mhs['nama_matkul']) ? "<td>" . $mhs['nama_matkul'] . "</td>" : '<td>-</td>';
                                                     echo "<td>" . $mhs['nama_materi'] . "</td>";
                                                     echo "<td>" . $mhs['pertemuan'] . "</td>";
-                                                    echo "<td>" . $mhs['tanggal_materi'] . "</td>";
+                                                    // echo "<td>" . $mhs['tanggal_materi'] . "</td>";
                                                     echo "<td>";
                                                     echo "<a href='./index.php?page=edit_materi&id=" . $mhs['id'] . "'>Edit</a> | ";
                                                     echo "<a href='./controller/materi/ctrl_hapus_materi.php?id=" . $mhs['id'] . "'>Hapus</a>";

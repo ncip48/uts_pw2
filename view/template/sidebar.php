@@ -6,7 +6,7 @@ $page = $_GET['page'];
         <div class="d-flex flex-row align-items-center mb-3 mb-md-0 me-md-auto link-light text-decoration-none">
             <img src="./assets/images/profile.png" class="rounded-circle img-thumbnail h-25 w-25 me-4" alt="profile">
             <div class="d-flex flex-column align-items-start mb-3 mb-md-0 me-md-auto link-light text-decoration-none">
-                <span class="fs-5 fw-bold">Halo, Herly Chahya Putra</span>
+                <span class="fs-5 fw-bold">Halo, <?= AUTHOR ?></span>
                 <span>(21.01.4658)</span>
             </div>
         </div>

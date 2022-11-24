@@ -3,7 +3,7 @@ include('./view/template/navbar.php');
 include('./config/config.php');
 session_start();
 
-$query = "SELECT a.*, b.nama_matkul, b.id as id_matkul FROM tb_materi a JOIN tb_matkul b ON a.id_matkul = b.id WHERE a.id='$_GET[id]'";
+$query = "SELECT a.*, b.nama_matkul, b.id as id_matkul FROM tb_materi a LEFT JOIN tb_matkul b ON a.id_matkul = b.id WHERE a.id='$_GET[id]'";
 $sql = mysqli_query($sambung, $query);
 $materi = mysqli_fetch_assoc($sql);
 if (mysqli_num_rows($sql) < 1) {
@@ -38,7 +38,7 @@ if (mysqli_num_rows($sql) < 1) {
                                         <tr>
                                             <td><label for="matkul">Matkul</label></td>
                                             <td class="d-flex align-items-center">:
-                                                <input class="ms-2 form-control" type="text" placeholder="Nama Materi" value="<?= $materi['nama_matkul'] ?>" readonly />
+                                                <input class="ms-2 form-control" type="text" placeholder="Nama Materi" value="<?= ($materi['nama_matkul']) ? $materi['nama_matkul'] : '-' ?>" readonly />
                                                 <input class="ms-2 form-control" type="hidden" name="matkul" placeholder="Nama Materi" value="<?= $materi['id_matkul'] ?>" />
                                                 <input class="ms-2 form-control" type="hidden" name="materi" placeholder="Nama Materi" value="<?= $materi['id'] ?>" />
                                             </td>
@@ -53,7 +53,7 @@ if (mysqli_num_rows($sql) < 1) {
                                             <td class="d-flex align-items-center">: <input class="ms-2 form-control" type="number" name="pertemuan" placeholder="Pertemuan" value="<?= $materi['pertemuan'] ?>" readonly />
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr hidden>
                                             <td><label for="tanggal_materi">Tanggal</label></td>
                                             <td class="d-flex align-items-center">: <input class="ms-2 form-control" type="datetime-local" name="tanggal_materi" placeholder="Tanggal" value="<?= $materi['tanggal_materi'] ?>" readonly />
                                             </td>
