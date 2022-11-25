@@ -2,7 +2,7 @@
     <div class="container-fluid py-1">
         <div class="d-flex flex-column">
             <a class="navbar-brand" href="./index.php?page=home">Dashboard</a>
-            <h6 class="text-white">(UTS Perancangan Web 2)</h6>
+            <h6 class="text-white">(Bahan Kuis 2 Komputasi Awan)</h6>
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

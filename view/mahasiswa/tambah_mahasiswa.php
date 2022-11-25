@@ -1,6 +1,8 @@
 <?php
 include('./view/template/navbar.php');
-session_start();
+// if (!headers_sent()) {
+//     session_start();
+// }
 ?>
 <div class="container-fluid">
     <div class="row">

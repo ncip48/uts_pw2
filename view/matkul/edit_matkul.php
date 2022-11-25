@@ -1,5 +1,7 @@
 <?php
-session_start();
+// if (!headers_sent()) {
+//     session_start();
+// }
 //require_once("../auth.php"); 
 include("./config/config.php");
 // if( !isset($_POST['nik']) ){

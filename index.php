@@ -1,4 +1,6 @@
 <?php
+@ob_start();
+session_start();
 
 if (!isset($_GET['page'])) {
     header("location: index.php?page=home");

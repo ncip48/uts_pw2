@@ -1,7 +1,9 @@
 <?php
 include('./view/template/navbar.php');
 include('./config/config.php');
-session_start();
+// if (!headers_sent()) {
+//     session_start();
+// }
 
 $query = "SELECT a.*, b.nama_matkul, b.id as id_matkul FROM tb_materi a LEFT JOIN tb_matkul b ON a.id_matkul = b.id WHERE a.id='$_GET[id]'";
 $sql = mysqli_query($sambung, $query);

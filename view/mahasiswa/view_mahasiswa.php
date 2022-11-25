@@ -1,5 +1,7 @@
 <?php
-session_start();
+// if (!headers_sent()) {
+//     session_start();
+// }
 include('./config/config.php');
 ?>
 
